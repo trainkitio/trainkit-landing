@@ -1,216 +1,491 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" dir="ltr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TrainKit - Transform Documents Into Professional Training</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
+    <title>PokerMath - Win More With Mathematics</title>
+    <meta name="description" content="Professional poker calculator and training platform. Master pot odds, equity calculations, and winning strategies with mathematical precision.">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Custom Tailwind Config -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        poker: {
+                            green: '#0D5E3A',
+                            lightgreen: '#1A7F52',
+                            red: '#C41E3A',
+                            gold: '#FFD700',
+                            dark: '#1A1A1A',
+                        }
+                    }
+                }
+            }
         }
+    </script>
+    
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap');
         
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            background: linear-gradient(135deg, #2563eb 0%, #10b981 100%);
-            color: white;
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 20px;
+            font-family: 'Inter', sans-serif;
         }
         
-        .container {
-            max-width: 800px;
-            text-align: center;
+        .card-bg {
+            background: linear-gradient(135deg, #0D5E3A 0%, #1A7F52 100%);
         }
         
-        .logo {
-            font-size: 80px;
-            margin-bottom: 20px;
+        .glow-text {
+            text-shadow: 0 0 20px rgba(255, 215, 0, 0.3);
         }
         
-        h1 {
-            font-size: 48px;
-            font-weight: 700;
-            margin-bottom: 20px;
+        .feature-card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
         
-        .tagline {
-            font-size: 28px;
-            font-weight: 300;
-            margin-bottom: 16px;
-        }
-        
-        .description {
-            font-size: 20px;
-            opacity: 0.9;
-            margin-bottom: 40px;
-            line-height: 1.6;
-        }
-        
-        .waitlist-form {
-            display: flex;
-            gap: 10px;
-            max-width: 500px;
-            margin: 0 auto 40px;
-        }
-        
-        input[type="email"] {
-            flex: 1;
-            padding: 16px 20px;
-            border: none;
-            border-radius: 8px;
-            font-size: 16px;
-            outline: none;
-        }
-        
-        button {
-            padding: 16px 32px;
-            background: #f59e0b;
-            border: none;
-            border-radius: 8px;
-            color: white;
-            font-size: 16px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: background 0.2s;
-        }
-        
-        button:hover {
-            background: #d97706;
-        }
-        
-        .note {
-            font-size: 14px;
-            opacity: 0.8;
-            margin-bottom: 60px;
-        }
-        
-        .features {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 30px;
-            margin-bottom: 60px;
-        }
-        
-        .feature {
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(10px);
-            padding: 30px;
-            border-radius: 12px;
-        }
-        
-        .feature-icon {
-            font-size: 48px;
-            margin-bottom: 12px;
-        }
-        
-        .feature h3 {
-            font-size: 20px;
-            margin-bottom: 8px;
-        }
-        
-        .feature p {
-            font-size: 16px;
-            opacity: 0.9;
-        }
-        
-        .footer {
-            font-size: 14px;
-            opacity: 0.75;
-            margin-top: 40px;
-        }
-        
-        .footer a {
-            color: white;
-            text-decoration: none;
-        }
-        
-        .footer a:hover {
-            text-decoration: underline;
-        }
-        
-        @media (max-width: 768px) {
-            h1 {
-                font-size: 36px;
-            }
-            
-            .tagline {
-                font-size: 22px;
-            }
-            
-            .description {
-                font-size: 18px;
-            }
-            
-            .waitlist-form {
-                flex-direction: column;
-            }
-            
-            button {
-                width: 100%;
-            }
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
         }
     </style>
 </head>
-<body>
-    <div class="container">
-        <div class="logo">📦</div>
+<body class="bg-gray-900 text-white">
+    
+    <!-- Hero Section -->
+    <div class="min-h-screen card-bg relative overflow-hidden">
+        <!-- Poker Table Pattern Background -->
+        <div class="absolute inset-0 opacity-10">
+            <div class="absolute top-20 left-20 text-9xl">♠</div>
+            <div class="absolute top-40 right-40 text-9xl">♥</div>
+            <div class="absolute bottom-20 left-40 text-9xl">♣</div>
+            <div class="absolute bottom-40 right-20 text-9xl">♦</div>
+        </div>
         
-        <h1>TrainKit</h1>
-        
-        <p class="tagline">
-            Transform Documents Into Professional Training Content
-        </p>
-        
-        <p class="description">
-            Upload your PDFs and docs. Get engaging training content - 
-            videos, presentations, and quizzes. Powered by AI. Ready in minutes.
-        </p>
-        
-        <form class="waitlist-form" action="https://formspree.io/f/xgovjjpe" method="POST">
-            <input 
-                type="email" 
-                name="email" 
-                placeholder="your@email.com" 
-                required
-            >
-            <button type="submit">Get Early Access</button>
-        </form>
-        
-        <p class="note">
-            Join 0+ on the waitlist • Launching Q1 2025
-        </p>
-        
-        <div class="features">
-            <div class="feature">
-                <div class="feature-icon">⚡</div>
-                <h3>Fast</h3>
-                <p>Minutes, not weeks. Upload and generate.</p>
+        <div class="relative max-w-6xl mx-auto px-6 py-20">
+            <!-- Logo/Brand -->
+            <div class="text-center mb-8">
+                <div class="inline-flex items-center space-x-3 bg-black/30 backdrop-blur-sm px-6 py-3 rounded-full">
+                    <span class="text-4xl">♠</span>
+                    <h1 class="text-2xl font-bold text-poker-gold">PokerMath</h1>
+                    <span class="text-4xl">♥</span>
+                </div>
             </div>
             
-            <div class="feature">
-                <div class="feature-icon">🎨</div>
-                <h3>Professional</h3>
-                <p>Beautiful templates. Branded content.</p>
+            <!-- Main Headline -->
+            <div class="text-center mb-12">
+                <h2 class="text-5xl md:text-7xl font-bold mb-6 glow-text">
+                    Win More With
+                    <span class="text-poker-gold">Mathematics</span>
+                </h2>
+                <p class="text-xl md:text-2xl text-gray-200 mb-4 max-w-3xl mx-auto">
+                    Master poker through mathematical precision. Calculate odds, analyze hands, and make profitable decisions with confidence.
+                </p>
+                <p class="text-lg text-poker-gold font-semibold">
+                    🇮🇱 Built for Israeli Players • עברית Soon
+                </p>
             </div>
             
-            <div class="feature">
-                <div class="feature-icon">🤖</div>
-                <h3>AI-Powered</h3>
-                <p>Smart content generation. Hebrew & English.</p>
+            <!-- Key Stats -->
+            <div class="grid grid-cols-3 gap-6 mb-12 max-w-3xl mx-auto">
+                <div class="text-center bg-black/30 backdrop-blur-sm rounded-xl p-6">
+                    <div class="text-3xl font-bold text-poker-gold mb-2">95%+</div>
+                    <div class="text-sm text-gray-300">Calculation Accuracy</div>
+                </div>
+                <div class="text-center bg-black/30 backdrop-blur-sm rounded-xl p-6">
+                    <div class="text-3xl font-bold text-poker-gold mb-2">1000+</div>
+                    <div class="text-sm text-gray-300">Training Scenarios</div>
+                </div>
+                <div class="text-center bg-black/30 backdrop-blur-sm rounded-xl p-6">
+                    <div class="text-3xl font-bold text-poker-gold mb-2">₪49</div>
+                    <div class="text-sm text-gray-300">Per Month</div>
+                </div>
+            </div>
+            
+            <!-- CTA Form -->
+            <div class="max-w-md mx-auto bg-white/95 backdrop-blur-sm rounded-2xl shadow-2xl p-8">
+                <h3 class="text-2xl font-bold text-gray-900 mb-2 text-center">Get Early Access</h3>
+                <p class="text-gray-600 text-center mb-6">Join the waitlist. Launch in 4 weeks!</p>
+                
+                <form action="https://formspree.io/f/xgovjjpe" method="POST" class="space-y-4">
+                    <input 
+                        type="email" 
+                        name="email" 
+                        placeholder="Enter your email" 
+                        required
+                        class="w-full px-4 py-3 rounded-lg border-2 border-gray-300 focus:border-poker-green focus:outline-none text-gray-900"
+                    >
+                    
+                    <input 
+                        type="text" 
+                        name="poker_site" 
+                        placeholder="Where do you play? (PokerStars, 888, etc.)" 
+                        class="w-full px-4 py-3 rounded-lg border-2 border-gray-300 focus:border-poker-green focus:outline-none text-gray-900"
+                    >
+                    
+                    <button 
+                        type="submit"
+                        class="w-full bg-poker-green hover:bg-poker-lightgreen text-white font-bold py-4 px-6 rounded-lg transition duration-300 transform hover:scale-105"
+                    >
+                        🎯 Join Waitlist (Free)
+                    </button>
+                    
+                    <p class="text-xs text-gray-500 text-center">
+                        🎁 First 100 users get 50% off for life!
+                    </p>
+                </form>
             </div>
         </div>
         
-        <div class="footer">
-            <p>© 2025 TrainKit. Made with ❤️ in Tel Aviv.</p>
-            <p style="margin-top: 8px;">
-                <a href="mailto:trainkit.io@gmail.com">trainkit.io@gmail.com</a>
+        <!-- Scroll Indicator -->
+        <div class="absolute bottom-10 left-1/2 transform -translate-x-1/2 animate-bounce">
+            <div class="text-white text-3xl">↓</div>
+        </div>
+    </div>
+    
+    <!-- Features Section -->
+    <div class="bg-gray-900 py-20">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold mb-4">Why <span class="text-poker-gold">PokerMath</span>?</h2>
+                <p class="text-xl text-gray-400">Stop guessing. Start calculating. Win consistently.</p>
+            </div>
+            
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Feature 1 -->
+                <div class="feature-card bg-gray-800 rounded-2xl p-8 border border-gray-700">
+                    <div class="text-5xl mb-4">🎯</div>
+                    <h3 class="text-2xl font-bold mb-4">Odds Calculator</h3>
+                    <p class="text-gray-400 mb-4">
+                        Instant equity calculations for any situation. Know your exact winning probability in real-time.
+                    </p>
+                    <ul class="space-y-2 text-sm text-gray-500">
+                        <li>✓ Pot odds & implied odds</li>
+                        <li>✓ Expected value (EV)</li>
+                        <li>✓ Multi-way all-in scenarios</li>
+                        <li>✓ Range vs range equity</li>
+                    </ul>
+                </div>
+                
+                <!-- Feature 2 -->
+                <div class="feature-card bg-gray-800 rounded-2xl p-8 border border-gray-700">
+                    <div class="text-5xl mb-4">📚</div>
+                    <h3 class="text-2xl font-bold mb-4">Training Mode</h3>
+                    <p class="text-gray-400 mb-4">
+                        Practice with 1000+ real scenarios. Learn optimal decisions through repetition and feedback.
+                    </p>
+                    <ul class="space-y-2 text-sm text-gray-500">
+                        <li>✓ Position-based training</li>
+                        <li>✓ Tournament vs cash game</li>
+                        <li>✓ Instant feedback</li>
+                        <li>✓ Progress tracking</li>
+                    </ul>
+                </div>
+                
+                <!-- Feature 3 -->
+                <div class="feature-card bg-gray-800 rounded-2xl p-8 border border-gray-700">
+                    <div class="text-5xl mb-4">📊</div>
+                    <h3 class="text-2xl font-bold mb-4">Session Tracker</h3>
+                    <p class="text-gray-400 mb-4">
+                        Log your games and analyze your performance. Track ROI, win rate, and identify leaks.
+                    </p>
+                    <ul class="space-y-2 text-sm text-gray-500">
+                        <li>✓ Bankroll management</li>
+                        <li>✓ Profit graphs</li>
+                        <li>✓ Best/worst hands</li>
+                        <li>✓ Excel/CSV export</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- How It Works -->
+    <div class="bg-gray-800 py-20">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold mb-4">How It Works</h2>
+                <p class="text-xl text-gray-400">Three simple steps to better poker</p>
+            </div>
+            
+            <div class="grid md:grid-cols-3 gap-12">
+                <div class="text-center">
+                    <div class="bg-poker-green text-white w-16 h-16 rounded-full flex items-center justify-center text-2xl font-bold mx-auto mb-6">
+                        1
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Input Your Hand</h3>
+                    <p class="text-gray-400">
+                        Select your cards, board cards, and situation. Takes 5 seconds.
+                    </p>
+                </div>
+                
+                <div class="text-center">
+                    <div class="bg-poker-green text-white w-16 h-16 rounded-full flex items-center justify-center text-2xl font-bold mx-auto mb-6">
+                        2
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Get Analysis</h3>
+                    <p class="text-gray-400">
+                        Instant mathematical breakdown. Odds, EV, recommended action.
+                    </p>
+                </div>
+                
+                <div class="text-center">
+                    <div class="bg-poker-green text-white w-16 h-16 rounded-full flex items-center justify-center text-2xl font-bold mx-auto mb-6">
+                        3
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Make Profit</h3>
+                    <p class="text-gray-400">
+                        Execute optimal strategy. Track results. Improve over time.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Pricing Section -->
+    <div class="bg-gray-900 py-20">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold mb-4">Simple Pricing</h2>
+                <p class="text-xl text-gray-400">Choose your plan. Cancel anytime.</p>
+            </div>
+            
+            <div class="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+                <!-- Free Plan -->
+                <div class="bg-gray-800 rounded-2xl p-8 border border-gray-700">
+                    <h3 class="text-2xl font-bold mb-2">Free</h3>
+                    <div class="text-4xl font-bold mb-6">₪0<span class="text-lg text-gray-400">/month</span></div>
+                    <ul class="space-y-3 mb-8">
+                        <li class="flex items-start">
+                            <span class="text-poker-gold mr-2">✓</span>
+                            <span class="text-gray-400">Basic odds calculator</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-poker-gold mr-2">✓</span>
+                            <span class="text-gray-400">10 training hands/week</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-gray-500 mr-2">✗</span>
+                            <span class="text-gray-600">Session tracker</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-gray-500 mr-2">✗</span>
+                            <span class="text-gray-600">Hand ranges</span>
+                        </li>
+                    </ul>
+                    <button class="w-full bg-gray-700 hover:bg-gray-600 text-white font-bold py-3 rounded-lg transition">
+                        Get Started
+                    </button>
+                </div>
+                
+                <!-- Pro Plan -->
+                <div class="bg-gradient-to-br from-poker-green to-poker-lightgreen rounded-2xl p-8 border-4 border-poker-gold relative transform scale-105">
+                    <div class="absolute -top-4 left-1/2 transform -translate-x-1/2 bg-poker-gold text-gray-900 px-4 py-1 rounded-full text-sm font-bold">
+                        POPULAR
+                    </div>
+                    <h3 class="text-2xl font-bold mb-2">Pro</h3>
+                    <div class="text-4xl font-bold mb-6">₪49<span class="text-lg text-gray-300">/month</span></div>
+                    <ul class="space-y-3 mb-8">
+                        <li class="flex items-start">
+                            <span class="text-poker-gold mr-2">✓</span>
+                            <span>Unlimited calculator</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-poker-gold mr-2">✓</span>
+                            <span>1000+ training scenarios</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-poker-gold mr-2">✓</span>
+                            <span>Full session tracker</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-poker-gold mr-2">✓</span>
+                            <span>Hand range charts (PDF)</span>
+                        </li>
+                    </ul>
+                    <button class="w-full bg-poker-gold hover:bg-yellow-500 text-gray-900 font-bold py-3 rounded-lg transition">
+                        Start Pro Trial
+                    </button>
+                </div>
+                
+                <!-- Coach Plan -->
+                <div class="bg-gray-800 rounded-2xl p-8 border border-gray-700">
+                    <h3 class="text-2xl font-bold mb-2">Coach</h3>
+                    <div class="text-4xl font-bold mb-6">₪99<span class="text-lg text-gray-400">/month</span></div>
+                    <ul class="space-y-3 mb-8">
+                        <li class="flex items-start">
+                            <span class="text-poker-gold mr-2">✓</span>
+                            <span class="text-gray-400">Everything in Pro</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-poker-gold mr-2">✓</span>
+                            <span class="text-gray-400">Advanced statistics</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-poker-gold mr-2">✓</span>
+                            <span class="text-gray-400">Priority support</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-poker-gold mr-2">✓</span>
+                            <span class="text-gray-400">Community forum</span>
+                        </li>
+                    </ul>
+                    <button class="w-full bg-gray-700 hover:bg-gray-600 text-white font-bold py-3 rounded-lg transition">
+                        Go Premium
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Testimonials Placeholder -->
+    <div class="bg-gray-800 py-20">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold mb-4">What Players Say</h2>
+                <p class="text-xl text-gray-400">(Coming soon from beta testers)</p>
+            </div>
+            
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="bg-gray-900 rounded-xl p-6 border border-gray-700">
+                    <div class="text-poker-gold mb-4">★★★★★</div>
+                    <p class="text-gray-400 mb-4 italic">
+                        "Finally, a poker tool made for Israeli players. The Hebrew support will be amazing!"
+                    </p>
+                    <p class="font-bold">- Beta Tester</p>
+                    <p class="text-sm text-gray-500">Tel Aviv</p>
+                </div>
+                
+                <div class="bg-gray-900 rounded-xl p-6 border border-gray-700">
+                    <div class="text-poker-gold mb-4">★★★★★</div>
+                    <p class="text-gray-400 mb-4 italic">
+                        "The odds calculator is super fast. This will definitely improve my game."
+                    </p>
+                    <p class="font-bold">- Beta Tester</p>
+                    <p class="text-sm text-gray-500">Haifa</p>
+                </div>
+                
+                <div class="bg-gray-900 rounded-xl p-6 border border-gray-700">
+                    <div class="text-poker-gold mb-4">★★★★★</div>
+                    <p class="text-gray-400 mb-4 italic">
+                        "Love the training mode. Makes learning pot odds actually fun!"
+                    </p>
+                    <p class="font-bold">- Beta Tester</p>
+                    <p class="text-sm text-gray-500">Jerusalem</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- FAQ Section -->
+    <div class="bg-gray-900 py-20">
+        <div class="max-w-3xl mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold mb-4">Frequently Asked Questions</h2>
+            </div>
+            
+            <div class="space-y-6">
+                <details class="bg-gray-800 rounded-xl p-6 border border-gray-700">
+                    <summary class="font-bold cursor-pointer text-lg">
+                        Is this legal in Israel?
+                    </summary>
+                    <p class="text-gray-400 mt-4">
+                        Yes! PokerMath is an educational tool for learning poker mathematics. It's not a gambling platform. Playing poker online on international sites is legal for Israeli residents.
+                    </p>
+                </details>
+                
+                <details class="bg-gray-800 rounded-xl p-6 border border-gray-700">
+                    <summary class="font-bold cursor-pointer text-lg">
+                        When will Hebrew support be available?
+                    </summary>
+                    <p class="text-gray-400 mt-4">
+                        Hebrew interface is coming in Phase 2 (approximately 2-3 months after launch). Early access members will get it free!
+                    </p>
+                </details>
+                
+                <details class="bg-gray-800 rounded-xl p-6 border border-gray-700">
+                    <summary class="font-bold cursor-pointer text-lg">
+                        Can I use this while playing?
+                    </summary>
+                    <p class="text-gray-400 mt-4">
+                        The calculator can help you learn and practice. However, check your poker site's terms of service regarding real-time assistance tools. We recommend using it for study and post-game analysis.
+                    </p>
+                </details>
+                
+                <details class="bg-gray-800 rounded-xl p-6 border border-gray-700">
+                    <summary class="font-bold cursor-pointer text-lg">
+                        Do you offer refunds?
+                    </summary>
+                    <p class="text-gray-400 mt-4">
+                        Yes! 30-day money-back guarantee. If you're not satisfied, we'll refund you - no questions asked.
+                    </p>
+                </details>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Final CTA -->
+    <div class="card-bg py-20">
+        <div class="max-w-4xl mx-auto px-6 text-center">
+            <h2 class="text-4xl md:text-5xl font-bold mb-6 glow-text">
+                Ready to Play Smarter?
+            </h2>
+            <p class="text-xl mb-8 text-gray-200">
+                Join the waitlist now. First 100 users get 50% off for life!
+            </p>
+            <a href="#top" class="inline-block bg-poker-gold hover:bg-yellow-500 text-gray-900 font-bold py-4 px-12 rounded-lg text-xl transition transform hover:scale-105">
+                🎯 Get Early Access
+            </a>
+            <p class="text-sm text-gray-300 mt-6">
+                Launching in 4 weeks • 100% Money-Back Guarantee • No Credit Card Required
             </p>
         </div>
     </div>
+    
+    <!-- Footer -->
+    <footer class="bg-gray-950 py-12">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="grid md:grid-cols-3 gap-8 mb-8">
+                <div>
+                    <h4 class="font-bold text-lg mb-4 text-poker-gold">PokerMath</h4>
+                    <p class="text-gray-400 text-sm">
+                        Professional poker calculator and training platform for Israeli players.
+                    </p>
+                </div>
+                
+                <div>
+                    <h4 class="font-bold text-lg mb-4">Product</h4>
+                    <ul class="space-y-2 text-sm text-gray-400">
+                        <li><a href="#" class="hover:text-poker-gold">Features</a></li>
+                        <li><a href="#" class="hover:text-poker-gold">Pricing</a></li>
+                        <li><a href="#" class="hover:text-poker-gold">FAQ</a></li>
+                        <li><a href="#" class="hover:text-poker-gold">Roadmap</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="font-bold text-lg mb-4">Contact</h4>
+                    <ul class="space-y-2 text-sm text-gray-400">
+                        <li><a href="mailto:hello@trainkit.io" class="hover:text-poker-gold">hello@trainkit.io</a></li>
+                        <li><a href="#" class="hover:text-poker-gold">WhatsApp Support</a></li>
+                        <li><a href="#" class="hover:text-poker-gold">Telegram Group</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-800 pt-8 text-center text-sm text-gray-500">
+                <p>&copy; 2026 PokerMath by TrainKit. Made with ♠ in Tel Aviv, Israel.</p>
+                <p class="mt-2">
+                    <a href="#" class="hover:text-poker-gold">Terms</a> • 
+                    <a href="#" class="hover:text-poker-gold">Privacy</a> • 
+                    <a href="#" class="hover:text-poker-gold">Responsible Gaming</a>
+                </p>
+            </div>
+        </div>
+    </footer>
+    
 </body>
 </html>
